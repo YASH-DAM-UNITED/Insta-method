@@ -11,631 +11,510 @@ body,
 }
 
 body {
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  background: #ffffff;
-
-  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  background: #1c1b1f;
 }
 
 button,
 input {
-  font-family: inherit;
+  font: inherit;
 }
 
 button {
   cursor: pointer;
 }
 
-
-/* MAIN PAGE */
-
-.page {
+.ig-page {
   min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #1d1c20;
+}
+
+/* LEFT SIDE */
+
+.hero-side {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 50% 50%, rgba(31, 56, 58, 0.22), transparent 52%),
+    #050d0f;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
+.ig-mark {
+  position: absolute;
+  top: 64px;
+  left: 70px;
 
-/* CENTER */
+  width: 92px;
+  height: 92px;
+  border-radius: 24px;
 
-.main {
-  flex: 1;
+  background:
+    radial-gradient(circle at 30% 105%, #ffd600 0 18%, #ff7a00 30%, transparent 47%),
+    radial-gradient(circle at 5% 10%, #7638fa 0 35%, transparent 56%),
+    linear-gradient(135deg, #7a28ff, #ff206e 50%, #ff7a00);
+
+  padding: 8px;
+}
+
+.ig-mark::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+
+  border: 7px solid #071012;
+  border-radius: 18px;
+}
+
+.ig-mark::after {
+  content: "";
+  position: absolute;
+
+  width: 27px;
+  height: 27px;
+
+  border: 7px solid #071012;
+  border-radius: 50%;
+
+  top: 29px;
+  left: 29px;
+}
+
+.ig-mark-inner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #071012;
+  border-radius: 50%;
+  top: 24px;
+  right: 22px;
+}
+
+.hero-title {
+  margin: 185px 40px 0;
+  text-align: center;
+
+  color: #f4f4f6;
+
+  font-size: clamp(36px, 3.1vw, 58px);
+  line-height: 1.35;
+  font-weight: 500;
+  letter-spacing: -1.6px;
+}
+
+.hero-title span {
+  background: linear-gradient(
+    90deg,
+    #ff5a49,
+    #ff295f,
+    #d93bff
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.collage {
+  position: relative;
+
+  width: 420px;
+  height: 360px;
+
+  margin-top: 40px;
+}
+
+.card {
+  position: absolute;
+
+  border-radius: 26px;
+  overflow: hidden;
+
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+}
+
+.card-back-left {
+  width: 140px;
+  height: 240px;
+
+  left: 42px;
+  top: 70px;
+
+  transform: rotate(-8deg);
+
+  background:
+    linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.03)),
+    linear-gradient(135deg, #245a68, #161719 55%, #553519);
+}
+
+.card-back-right {
+  width: 170px;
+  height: 245px;
+
+  right: 38px;
+  top: 60px;
+
+  transform: rotate(6deg);
+
+  background:
+    linear-gradient(135deg, #282a2e, #80554f 45%, #1e2120);
+}
+
+.card-main {
+  width: 190px;
+  height: 300px;
+
+  left: 118px;
+  top: 20px;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), transparent 35%),
+    linear-gradient(135deg, #5b514e, #c8ac89 45%, #2d1f22 100%);
+}
+
+.fake-person {
+  position: absolute;
+
+  width: 110px;
+  height: 170px;
+
+  border-radius: 70px 70px 30px 30px;
+
+  top: 62px;
+  left: 42px;
+
+  background:
+    radial-gradient(circle at 50% 26%, #ce8d62 0 19%, transparent 20%),
+    radial-gradient(circle at 50% 10%, #1e1b20 0 31%, transparent 32%),
+    linear-gradient(#2c2f3c, #d9b06f 65%, #fff 66%);
+}
+
+.story-bar {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+
+  width: 120px;
+  height: 20px;
+
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+}
+
+.heart {
+  position: absolute;
+
+  right: 20px;
+  bottom: 15px;
+
+  color: #fff;
+
+  font-size: 32px;
+}
+
+.reaction {
+  position: absolute;
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  font-weight: 700;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.reaction-heart {
+  left: 18px;
+  bottom: 88px;
+
+  width: 46px;
+  height: 46px;
+
+  color: white;
+  font-size: 26px;
+
+  transform: rotate(-16deg);
+
+  background: linear-gradient(135deg, #ff7043, #ff1744, #ff2d75);
+}
+
+.reaction-star {
+  right: 16px;
+  top: 62px;
+
+  width: 48px;
+  height: 48px;
+
+  color: #fff;
+  background: #22d965;
+
+  font-size: 22px;
+}
+
+.reaction-circle {
+  right: 16px;
+  bottom: 74px;
+
+  width: 60px;
+  height: 60px;
+
+  border: 5px solid #f81c72;
+
+  background:
+    radial-gradient(circle at center, #6fc36b 0 32%, #f1d3b7 33% 60%, #452014 61%);
+}
+
+/* RIGHT SIDE */
+
+.login-side {
+  min-height: 100vh;
+
+  background: #1d1c20;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  padding:
-    30px
-    20px;
+  border-left: 1px solid rgba(255,255,255,.08);
 }
 
-
-.login-container {
-  width: 350px;
+.login-panel {
+  width: min(650px, 84%);
 }
 
+.login-panel h2 {
+  color: #f1f1f2;
 
-/* LOGIN CARD */
+  font-size: 24px;
+  font-weight: 600;
 
-.login-card {
-  background: #ffffff;
+  margin: 0 0 28px;
+}
 
-  border:
-    1px
-    solid
-    #dbdbdb;
+.login-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-panel input {
+  width: 100%;
+  height: 74px;
+
+  border-radius: 20px;
+
+  border: 1px solid #646269;
+
+  background: #211f23;
+
+  color: #fff;
+
+  padding: 0 20px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  outline: none;
+}
+
+.login-panel input::placeholder {
+  color: #9d9aa2;
+}
+
+.login-panel input:focus {
+  border-color: #8f8d95;
+}
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  padding-right: 70px;
+}
+
+.show-btn {
+  position: absolute;
+
+  top: 50%;
+  right: 20px;
+
+  transform: translateY(-50%);
+
+  border: none;
+
+  background: transparent;
+
+  color: #d8d8dc;
+
+  font-weight: 600;
+
+  display: none;
+}
+
+.login-btn {
+  height: 54px;
+
+  margin-top: 14px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #234d91;
+
+  color: #8f99ae;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.forgot-btn {
+  display: block;
+
+  margin: 26px auto 74px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ededee;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.facebook-btn,
+.create-btn {
+  width: 100%;
+  height: 54px;
+
+  border-radius: 999px;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.facebook-btn {
+  border: none;
+
+  background: #28282b;
+
+  color: #b7b7ba;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.fb-icon {
+  width: 18px;
+  height: 18px;
+
+  display: inline-grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #1295f3;
+
+  color: #fff;
+
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+}
+
+.create-btn {
+  margin-top: 16px;
+
+  border: 2px solid #2797ff;
+
+  background: transparent;
+
+  color: #44a5ff;
+}
+
+.meta {
+  margin-top: 25px;
 
   text-align: center;
 
-  padding:
-    38px
-    40px
-    22px;
+  color: #e1e1e4;
+
+  font-size: 21px;
+  font-weight: 600;
 }
 
+.demo-msg {
+  margin-top: 18px;
 
-/* LOGO */
+  text-align: center;
 
-.instagram-logo {
-  margin:
-    7px
-    0
-    36px;
+  color: #a8a8ad;
 
-  font-family:
-    "Brush Script MT",
-    "Segoe Script",
-    cursive;
-
-  font-size: 51px;
-
-  font-weight: 500;
-
-  letter-spacing: -2px;
-
-  line-height: 1;
-
-  color: #000000;
+  font-size: 13px;
 }
 
+/* TABLET */
 
-/* INPUTS */
+@media (max-width: 1000px) {
+  .ig-page {
+    grid-template-columns: 42% 58%;
+  }
 
-.input-wrapper {
-  position: relative;
+  .hero-title {
+    font-size: 36px;
+  }
 
-  margin-bottom: 6px;
+  .collage {
+    transform: scale(.85);
+  }
+
+  .login-panel {
+    width: 84%;
+  }
 }
-
-
-.input-wrapper input {
-  width: 100%;
-
-  height: 38px;
-
-  padding:
-    9px
-    8px;
-
-  border:
-    1px
-    solid
-    #dbdbdb;
-
-  border-radius: 3px;
-
-  outline: none;
-
-  background:
-    #fafafa;
-
-  font-size: 12px;
-
-  color:
-    #262626;
-}
-
-
-.input-wrapper input::placeholder {
-  color:
-    #737373;
-}
-
-
-.input-wrapper input:focus {
-  border-color:
-    #a8a8a8;
-}
-
-
-/* PASSWORD SHOW BUTTON */
-
-.password-wrapper input {
-  padding-right:
-    48px;
-}
-
-
-.show-password {
-  position: absolute;
-
-  right: 8px;
-
-  top: 50%;
-
-  transform:
-    translateY(-50%);
-
-  border: 0;
-
-  padding: 0;
-
-  background:
-    transparent;
-
-  font-size:
-    14px;
-
-  font-weight:
-    600;
-
-  color:
-    #262626;
-}
-
-
-/* LOGIN BUTTON */
-
-.login-button {
-  width: 100%;
-
-  height: 32px;
-
-  margin-top:
-    8px;
-
-  border: 0;
-
-  border-radius:
-    8px;
-
-  background:
-    #4cb5f9;
-
-  color:
-    #ffffff;
-
-  font-size:
-    14px;
-
-  font-weight:
-    600;
-}
-
-
-.login-button:hover {
-  background:
-    #0095f6;
-}
-
-
-/* DIVIDER */
-
-.divider {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  margin:
-    20px
-    0
-    22px;
-}
-
-
-.divider span {
-  flex:
-    1;
-
-  height:
-    1px;
-
-  background:
-    #dbdbdb;
-}
-
-
-.divider p {
-  margin:
-    0
-    18px;
-
-  font-size:
-    13px;
-
-  font-weight:
-    600;
-
-  color:
-    #737373;
-}
-
-
-/* FACEBOOK LOGIN */
-
-.facebook-login {
-  width: 100%;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    8px;
-
-  border:
-    0;
-
-  background:
-    transparent;
-
-  color:
-    #385185;
-
-  font-size:
-    14px;
-
-  font-weight:
-    600;
-}
-
-
-.facebook-icon {
-  width:
-    18px;
-
-  height:
-    18px;
-
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  background:
-    #385185;
-
-  color:
-    #ffffff;
-
-  border-radius:
-    2px;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size:
-    17px;
-
-  font-weight:
-    bold;
-}
-
-
-/* FORGOT */
-
-.forgot-password {
-  border:
-    0;
-
-  background:
-    transparent;
-
-  margin-top:
-    20px;
-
-  color:
-    #00376b;
-
-  font-size:
-    12px;
-}
-
-
-/* MESSAGE */
-
-.demo-message {
-  margin-top:
-    15px;
-
-  padding:
-    9px;
-
-  border-radius:
-    6px;
-
-  background:
-    #fafafa;
-
-  font-size:
-    12px;
-
-  color:
-    #737373;
-}
-
-
-/* SIGNUP */
-
-.signup-card {
-  margin-top:
-    10px;
-
-  min-height:
-    63px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border:
-    1px
-    solid
-    #dbdbdb;
-
-  background:
-    #ffffff;
-
-  text-align:
-    center;
-}
-
-
-.signup-card p {
-  margin:
-    0;
-
-  font-size:
-    14px;
-}
-
-
-.signup-card strong {
-  color:
-    #0095f6;
-
-  font-weight:
-    600;
-}
-
-
-/* GET APP */
-
-.app-section {
-  text-align:
-    center;
-
-  font-size:
-    14px;
-}
-
-
-.app-section p {
-  margin:
-    20px
-    0;
-}
-
-
-.download-buttons {
-  display:
-    flex;
-
-  justify-content:
-    center;
-
-  gap:
-    8px;
-}
-
-
-.download-button {
-  width:
-    136px;
-
-  height:
-    40px;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border-radius:
-    5px;
-
-  background:
-    #000000;
-
-  color:
-    #ffffff;
-
-  line-height:
-    1.05;
-}
-
-
-.download-button small {
-  font-size:
-    8px;
-}
-
-
-.download-button strong {
-  margin-top:
-    2px;
-
-  font-size:
-    14px;
-
-  font-weight:
-    500;
-}
-
-
-/* FOOTER */
-
-footer {
-  padding:
-    25px
-    20px
-    45px;
-
-  color:
-    #737373;
-
-  text-align:
-    center;
-
-  font-size:
-    12px;
-}
-
-
-.footer-links {
-  max-width:
-    950px;
-
-  margin:
-    0
-    auto;
-
-  display:
-    flex;
-
-  justify-content:
-    center;
-
-  flex-wrap:
-    wrap;
-
-  gap:
-    9px
-    16px;
-}
-
-
-.footer-links span {
-  white-space:
-    nowrap;
-}
-
-
-.footer-bottom {
-  margin-top:
-    20px;
-
-  display:
-    flex;
-
-  justify-content:
-    center;
-
-  gap:
-    18px;
-}
-
 
 /* MOBILE */
 
-@media (max-width: 450px) {
-
-  .main {
-    align-items:
-      flex-start;
-
-    padding:
-      25px
-      0;
+@media (max-width: 760px) {
+  .ig-page {
+    display: block;
   }
 
-
-  .login-container {
-    width:
-      100%;
-
-    max-width:
-      350px;
+  .hero-side {
+    display: none;
   }
 
+  .login-side {
+    min-height: 100vh;
 
-  .login-card,
-  .signup-card {
-    border:
-      0;
+    border-left: none;
+
+    padding: 40px 18px;
   }
 
-
-  .login-card {
-    padding:
-      32px
-      40px
-      20px;
+  .login-panel {
+    width: 100%;
+    max-width: 520px;
   }
 
-
-  footer {
-    padding-top:
-      35px;
+  .login-panel h2 {
+    margin-top: 16px;
   }
 
-}
-
-
-/* VERY SMALL PHONE */
-
-@media (max-width: 360px) {
-
-  .login-card {
-    padding-left:
-      25px;
-
-    padding-right:
-      25px;
+  .forgot-btn {
+    margin-bottom: 54px;
   }
-
 }
