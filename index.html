@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Portal</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #fafafa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 350px;
+    }
+
+    .login-box {
+      background: white;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 35px;
+      letter-spacing: -1px;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px;
+      margin-bottom: 7px;
+      border: 1px solid #dbdbdb;
+      background: #fafafa;
+      border-radius: 3px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #999;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 9px;
+      border: none;
+      border-radius: 8px;
+      background: #0095f6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1877f2;
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      margin: 22px 0;
+      color: #737373;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .separator::before,
+    .separator::after {
+      content: "";
+      height: 1px;
+      background: #dbdbdb;
+      flex: 1;
+    }
+
+    .separator span {
+      padding: 0 15px;
+    }
+
+    .help {
+      font-size: 12px;
+      color: #385185;
+      margin-top: 18px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      color: #737373;
+      font-size: 12px;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="login-box">
+
+      <div class="logo">
+        COMPANY
+      </div>
+
+      <form id="loginForm">
+
+        <input
+          type="text"
+          id="username"
+          placeholder="Company username"
+          required
+        >
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
+        >
+
+        <button type="submit">
+          Log in
+        </button>
+
+      </form>
+
+      <div class="separator">
+        <span>OR</span>
+      </div>
+
+      <div class="help">
+        Internal Company Portal
+      </div>
+
+      <div id="message"></div>
+
+    </div>
+
+    <div class="footer">
+      Temporary company demonstration
+    </div>
+
+  </div>
+
+<script>
+
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const username =
+      document.getElementById("username").value;
+
+    document.getElementById("message").innerHTML =
+      "Welcome, " + username;
+
+  });
+
+</script>
+
+</body>
+</html>
