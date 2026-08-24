@@ -1,183 +1,92 @@
 import { useState } from "react";
+import "./styles.css";
 
 export default function App() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
 
-  function handleLogin(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-
-    setMessage("Demo page — login is disabled.");
+    setMessage("Demo login only");
   }
 
   return (
-    <div className="page">
+    <div className="ig-page">
+      <section className="hero-side">
+        <div className="ig-mark">
+          <div className="ig-mark-inner"></div>
+        </div>
 
-      <main className="main">
+        <h1 className="hero-title">
+          See everyday moments from
+          <br />
+          your <span>close friends</span>.
+        </h1>
 
-        <div className="login-container">
+        <div className="collage">
+          <div className="card card-back-left"></div>
+          <div className="card card-back-right"></div>
 
-          <section className="login-card">
+          <div className="card card-main">
+            <div className="fake-person"></div>
+            <div className="story-bar"></div>
+            <div className="heart">♡</div>
+          </div>
 
-            <div className="instagram-logo">
-              Instagram
-            </div>
+          <div className="reaction reaction-heart">♥</div>
+          <div className="reaction reaction-star">★</div>
+          <div className="reaction reaction-circle"></div>
+        </div>
+      </section>
 
-            <form onSubmit={handleLogin}>
+      <section className="login-side">
+        <div className="login-panel">
+          <h2>Log into Instagram</h2>
 
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  placeholder="Phone number, username, or email"
-                  autoComplete="off"
-                />
-              </div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Mobile number, username or email"
+            />
 
-              <div className="input-wrapper password-wrapper">
-
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  autoComplete="off"
-                />
-
-                <button
-                  type="button"
-                  className="show-password"
-                  onClick={() =>
-                    setShowPassword((current) => !current)
-                  }
-                >
-                  {showPassword ? "Hide" : "Show"}
-                </button>
-
-              </div>
+            <div className="password-box">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+              />
 
               <button
-                className="login-button"
-                type="submit"
+                className="show-btn"
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
               >
-                Log in
+                {showPassword ? "Hide" : "Show"}
               </button>
-
-            </form>
-
-            <div className="divider">
-              <span></span>
-              <p>OR</p>
-              <span></span>
             </div>
 
-            <button
-              className="facebook-login"
-              type="button"
-            >
-              <span className="facebook-icon">
-                f
-              </span>
-
-              Log in with Facebook
+            <button className="login-btn" type="submit">
+              Log in
             </button>
+          </form>
 
-            <button
-              className="forgot-password"
-              type="button"
-            >
-              Forgot password?
-            </button>
+          <button className="forgot-btn" type="button">
+            Forgot password?
+          </button>
 
-            {message && (
-              <div className="demo-message">
-                {message}
-              </div>
-            )}
+          <button className="facebook-btn" type="button">
+            <span className="fb-icon">f</span>
+            Log in with Facebook
+          </button>
 
-          </section>
+          <button className="create-btn" type="button">
+            Create new account
+          </button>
 
+          <div className="meta">∞ Meta</div>
 
-          <section className="signup-card">
-
-            <p>
-              Don't have an account?{" "}
-              <strong>
-                Sign up
-              </strong>
-            </p>
-
-          </section>
-
-
-          <section className="app-section">
-
-            <p>
-              Get the app.
-            </p>
-
-            <div className="download-buttons">
-
-              <div className="download-button">
-                <small>
-                  GET IT ON
-                </small>
-
-                <strong>
-                  Google Play
-                </strong>
-              </div>
-
-              <div className="download-button">
-                <small>
-                  Get it from
-                </small>
-
-                <strong>
-                  Microsoft
-                </strong>
-              </div>
-
-            </div>
-
-          </section>
-
+          {message && <div className="demo-msg">{message}</div>}
         </div>
-
-      </main>
-
-
-      <footer>
-
-        <div className="footer-links">
-
-          <span>Meta</span>
-          <span>About</span>
-          <span>Blog</span>
-          <span>Jobs</span>
-          <span>Help</span>
-          <span>API</span>
-          <span>Privacy</span>
-          <span>Terms</span>
-          <span>Locations</span>
-          <span>Instagram Lite</span>
-          <span>Threads</span>
-          <span>Contact Uploading & Non-Users</span>
-          <span>Meta Verified</span>
-
-        </div>
-
-        <div className="footer-bottom">
-
-          <span>
-            English
-          </span>
-
-          <span>
-            © 2026 UI Demo
-          </span>
-
-        </div>
-
-      </footer>
-
+      </section>
     </div>
   );
 }
