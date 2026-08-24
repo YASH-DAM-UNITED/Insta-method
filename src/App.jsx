@@ -1,74 +1,153 @@
-// src/App.jsx
-import "./index.css";
+import { useState } from "react";
 
 export default function App() {
-  const handleSubmit = (e) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState("");
+
+  function handleLogin(e) {
     e.preventDefault();
-    alert("Demo login only");
-  };
+
+    setMessage("Demo page — login is disabled.");
+  }
 
   return (
     <div className="page">
-      <main className="loginWrap">
-        <section className="loginCard">
-          <div className="logoText">Instagram</div>
 
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Phone number, username, or email"
-            />
+      <main className="main">
 
-            <input
-              type="password"
-              placeholder="Password"
-            />
+        <div className="login-container">
 
-            <button type="submit">
-              Log in
+          <section className="login-card">
+
+            <div className="instagram-logo">
+              Instagram
+            </div>
+
+            <form onSubmit={handleLogin}>
+
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  placeholder="Phone number, username, or email"
+                  autoComplete="off"
+                />
+              </div>
+
+              <div className="input-wrapper password-wrapper">
+
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  autoComplete="off"
+                />
+
+                <button
+                  type="button"
+                  className="show-password"
+                  onClick={() =>
+                    setShowPassword((current) => !current)
+                  }
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+
+              </div>
+
+              <button
+                className="login-button"
+                type="submit"
+              >
+                Log in
+              </button>
+
+            </form>
+
+            <div className="divider">
+              <span></span>
+              <p>OR</p>
+              <span></span>
+            </div>
+
+            <button
+              className="facebook-login"
+              type="button"
+            >
+              <span className="facebook-icon">
+                f
+              </span>
+
+              Log in with Facebook
             </button>
-          </form>
 
-          <div className="divider">
-            <span></span>
-            <p>OR</p>
-            <span></span>
-          </div>
+            <button
+              className="forgot-password"
+              type="button"
+            >
+              Forgot password?
+            </button>
 
-          <button className="facebookBtn">
-            <span className="fbIcon">f</span>
-            Log in with Facebook
-          </button>
+            {message && (
+              <div className="demo-message">
+                {message}
+              </div>
+            )}
 
-          <a className="forgot" href="#forgot">
-            Forgot password?
-          </a>
-        </section>
+          </section>
 
-        <section className="signupBox">
-          <p>
-            Don't have an account?{" "}
-            <span>Sign up</span>
-          </p>
-        </section>
 
-        <div className="getApp">
-          <p>Get the app.</p>
+          <section className="signup-card">
 
-          <div className="appButtons">
-            <div className="storeBtn">
-              Google Play
+            <p>
+              Don't have an account?{" "}
+              <strong>
+                Sign up
+              </strong>
+            </p>
+
+          </section>
+
+
+          <section className="app-section">
+
+            <p>
+              Get the app.
+            </p>
+
+            <div className="download-buttons">
+
+              <div className="download-button">
+                <small>
+                  GET IT ON
+                </small>
+
+                <strong>
+                  Google Play
+                </strong>
+              </div>
+
+              <div className="download-button">
+                <small>
+                  Get it from
+                </small>
+
+                <strong>
+                  Microsoft
+                </strong>
+              </div>
+
             </div>
 
-            <div className="storeBtn">
-              Microsoft
-            </div>
-          </div>
+          </section>
+
         </div>
+
       </main>
 
+
       <footer>
-        <div className="footerLinks">
+
+        <div className="footer-links">
+
           <span>Meta</span>
           <span>About</span>
           <span>Blog</span>
@@ -78,16 +157,27 @@ export default function App() {
           <span>Privacy</span>
           <span>Terms</span>
           <span>Locations</span>
+          <span>Instagram Lite</span>
           <span>Threads</span>
           <span>Contact Uploading & Non-Users</span>
           <span>Meta Verified</span>
+
         </div>
 
-        <div className="copyright">
-          <span>English</span>
-          <span>© 2026 Demo Portal</span>
+        <div className="footer-bottom">
+
+          <span>
+            English
+          </span>
+
+          <span>
+            © 2026 UI Demo
+          </span>
+
         </div>
+
       </footer>
+
     </div>
   );
 }
