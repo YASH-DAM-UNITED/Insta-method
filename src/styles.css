@@ -1,520 +1,146 @@
-* {
-  box-sizing: border-box;
-}
+/* =========================
+   SPLASH SCREEN
+========================= */
 
-html,
-body,
-#root {
-  margin: 0;
+.splash-screen {
+  position: fixed;
+
+  inset: 0;
+
   width: 100%;
-  min-height: 100%;
-}
+  height: 100%;
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  background: #1c1b1f;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.ig-page {
-  min-height: 100vh;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: #1d1c20;
-}
-
-/* LEFT SIDE */
-
-.hero-side {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-
-  background:
-    radial-gradient(circle at 50% 50%, rgba(31, 56, 58, 0.22), transparent 52%),
-    #050d0f;
+  background: #000;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  animation: splashFadeOut 0.35s ease 1.45s forwards;
+
+  z-index: 9999;
 }
 
-.ig-mark {
-  position: absolute;
-  top: 64px;
-  left: 70px;
+/* Instagram-style app icon */
 
-  width: 92px;
-  height: 92px;
-  border-radius: 24px;
+.splash-logo {
+  width: 82px;
+  height: 82px;
+
+  position: relative;
+
+  border-radius: 22px;
 
   background:
-    radial-gradient(circle at 30% 105%, #ffd600 0 18%, #ff7a00 30%, transparent 47%),
-    radial-gradient(circle at 5% 10%, #7638fa 0 35%, transparent 56%),
-    linear-gradient(135deg, #7a28ff, #ff206e 50%, #ff7a00);
+    radial-gradient(
+      circle at 30% 105%,
+      #ffd600 0 18%,
+      #ff7a00 29%,
+      transparent 47%
+    ),
+    radial-gradient(
+      circle at 0% 0%,
+      #7638fa 0 32%,
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      #833ab4,
+      #fd1d1d 50%,
+      #fcb045
+    );
 
-  padding: 8px;
+  animation: logoAppear 0.55s ease;
 }
 
-.ig-mark::before {
+.splash-logo::before {
   content: "";
-  position: absolute;
-  inset: 8px;
 
-  border: 7px solid #071012;
+  position: absolute;
+
+  inset: 9px;
+
+  border: 6px solid white;
+
   border-radius: 18px;
 }
 
-.ig-mark::after {
+.splash-logo::after {
   content: "";
+
   position: absolute;
 
-  width: 27px;
-  height: 27px;
+  width: 24px;
+  height: 24px;
 
-  border: 7px solid #071012;
-  border-radius: 50%;
-
-  top: 29px;
-  left: 29px;
-}
-
-.ig-mark-inner {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  background: #071012;
-  border-radius: 50%;
-  top: 24px;
-  right: 22px;
-}
-
-.hero-title {
-  margin: 185px 40px 0;
-  text-align: center;
-
-  color: #f4f4f6;
-
-  font-size: clamp(36px, 3.1vw, 58px);
-  line-height: 1.35;
-  font-weight: 500;
-  letter-spacing: -1.6px;
-}
-
-.hero-title span {
-  background: linear-gradient(
-    90deg,
-    #ff5a49,
-    #ff295f,
-    #d93bff
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.collage {
-  position: relative;
-
-  width: 420px;
-  height: 360px;
-
-  margin-top: 40px;
-}
-
-.card {
-  position: absolute;
-
-  border-radius: 26px;
-  overflow: hidden;
-
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
-}
-
-.card-back-left {
-  width: 140px;
-  height: 240px;
-
-  left: 42px;
-  top: 70px;
-
-  transform: rotate(-8deg);
-
-  background:
-    linear-gradient(rgba(255,255,255,.08), rgba(255,255,255,.03)),
-    linear-gradient(135deg, #245a68, #161719 55%, #553519);
-}
-
-.card-back-right {
-  width: 170px;
-  height: 245px;
-
-  right: 38px;
-  top: 60px;
-
-  transform: rotate(6deg);
-
-  background:
-    linear-gradient(135deg, #282a2e, #80554f 45%, #1e2120);
-}
-
-.card-main {
-  width: 190px;
-  height: 300px;
-
-  left: 118px;
-  top: 20px;
-
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.05), transparent 35%),
-    linear-gradient(135deg, #5b514e, #c8ac89 45%, #2d1f22 100%);
-}
-
-.fake-person {
-  position: absolute;
-
-  width: 110px;
-  height: 170px;
-
-  border-radius: 70px 70px 30px 30px;
-
-  top: 62px;
-  left: 42px;
-
-  background:
-    radial-gradient(circle at 50% 26%, #ce8d62 0 19%, transparent 20%),
-    radial-gradient(circle at 50% 10%, #1e1b20 0 31%, transparent 32%),
-    linear-gradient(#2c2f3c, #d9b06f 65%, #fff 66%);
-}
-
-.story-bar {
-  position: absolute;
-  left: 24px;
-  bottom: 20px;
-
-  width: 120px;
-  height: 20px;
-
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  border-radius: 999px;
-}
-
-.heart {
-  position: absolute;
-
-  right: 20px;
-  bottom: 15px;
-
-  color: #fff;
-
-  font-size: 32px;
-}
-
-.reaction {
-  position: absolute;
-  display: grid;
-  place-items: center;
+  border: 6px solid white;
 
   border-radius: 50%;
 
-  font-weight: 700;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-}
-
-.reaction-heart {
-  left: 18px;
-  bottom: 88px;
-
-  width: 46px;
-  height: 46px;
-
-  color: white;
-  font-size: 26px;
-
-  transform: rotate(-16deg);
-
-  background: linear-gradient(135deg, #ff7043, #ff1744, #ff2d75);
-}
-
-.reaction-star {
-  right: 16px;
-  top: 62px;
-
-  width: 48px;
-  height: 48px;
-
-  color: #fff;
-  background: #22d965;
-
-  font-size: 22px;
-}
-
-.reaction-circle {
-  right: 16px;
-  bottom: 74px;
-
-  width: 60px;
-  height: 60px;
-
-  border: 5px solid #f81c72;
-
-  background:
-    radial-gradient(circle at center, #6fc36b 0 32%, #f1d3b7 33% 60%, #452014 61%);
-}
-
-/* RIGHT SIDE */
-
-.login-side {
-  min-height: 100vh;
-
-  background: #1d1c20;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-left: 1px solid rgba(255,255,255,.08);
-}
-
-.login-panel {
-  width: min(650px, 84%);
-}
-
-.login-panel h2 {
-  color: #f1f1f2;
-
-  font-size: 24px;
-  font-weight: 600;
-
-  margin: 0 0 28px;
-}
-
-.login-panel form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.login-panel input {
-  width: 100%;
-  height: 74px;
-
-  border-radius: 20px;
-
-  border: 1px solid #646269;
-
-  background: #211f23;
-
-  color: #fff;
-
-  padding: 0 20px;
-
-  font-size: 18px;
-  font-weight: 500;
-
-  outline: none;
-}
-
-.login-panel input::placeholder {
-  color: #9d9aa2;
-}
-
-.login-panel input:focus {
-  border-color: #8f8d95;
-}
-
-.password-box {
-  position: relative;
-}
-
-.password-box input {
-  padding-right: 70px;
-}
-
-.show-btn {
-  position: absolute;
-
+  left: 50%;
   top: 50%;
-  right: 20px;
 
-  transform: translateY(-50%);
-
-  border: none;
-
-  background: transparent;
-
-  color: #d8d8dc;
-
-  font-weight: 600;
-
-  display: none;
+  transform:
+    translate(-50%, -50%);
 }
 
-.login-btn {
-  height: 54px;
+.splash-logo-inner {
+  width: 8px;
+  height: 8px;
 
-  margin-top: 14px;
-
-  border: none;
-  border-radius: 999px;
-
-  background: #234d91;
-
-  color: #8f99ae;
-
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.forgot-btn {
-  display: block;
-
-  margin: 26px auto 74px;
-
-  border: none;
-
-  background: transparent;
-
-  color: #ededee;
-
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.facebook-btn,
-.create-btn {
-  width: 100%;
-  height: 54px;
-
-  border-radius: 999px;
-
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.facebook-btn {
-  border: none;
-
-  background: #28282b;
-
-  color: #b7b7ba;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-}
-
-.fb-icon {
-  width: 18px;
-  height: 18px;
-
-  display: inline-grid;
-  place-items: center;
+  background: white;
 
   border-radius: 50%;
 
-  background: #1295f3;
+  position: absolute;
 
-  color: #fff;
-
-  font-family: Arial, sans-serif;
-  font-weight: 700;
+  right: 20px;
+  top: 19px;
 }
 
-.create-btn {
-  margin-top: 16px;
 
-  border: 2px solid #2797ff;
+/* META TEXT AT BOTTOM */
 
-  background: transparent;
+.splash-meta {
+  position: absolute;
 
-  color: #44a5ff;
+  bottom: 42px;
+
+  color: #8e8e8e;
+
+  font-size: 15px;
+
+  letter-spacing: 0.2px;
 }
 
-.meta {
-  margin-top: 25px;
 
-  text-align: center;
+/* LOGO ENTRANCE */
 
-  color: #e1e1e4;
+@keyframes logoAppear {
 
-  font-size: 21px;
-  font-weight: 600;
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
 }
 
-.demo-msg {
-  margin-top: 18px;
 
-  text-align: center;
+/* SPLASH FADE */
 
-  color: #a8a8ad;
+@keyframes splashFadeOut {
 
-  font-size: 13px;
-}
-
-/* TABLET */
-
-@media (max-width: 1000px) {
-  .ig-page {
-    grid-template-columns: 42% 58%;
+  from {
+    opacity: 1;
   }
 
-  .hero-title {
-    font-size: 36px;
+  to {
+    opacity: 0;
   }
 
-  .collage {
-    transform: scale(.85);
-  }
-
-  .login-panel {
-    width: 84%;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-  .ig-page {
-    display: block;
-  }
-
-  .hero-side {
-    display: none;
-  }
-
-  .login-side {
-    min-height: 100vh;
-
-    border-left: none;
-
-    padding: 40px 18px;
-  }
-
-  .login-panel {
-    width: 100%;
-    max-width: 520px;
-  }
-
-  .login-panel h2 {
-    margin-top: 16px;
-  }
-
-  .forgot-btn {
-    margin-bottom: 54px;
-  }
 }
