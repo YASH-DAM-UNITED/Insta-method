@@ -1,181 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Company Portal</title>
 
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
+      margin: 0;
       background: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #262626;
+    }
+
+    .page {
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 30px 15px;
     }
 
-    .container {
+    .login-card {
       width: 350px;
-    }
-
-    .login-box {
-      background: white;
+      background: #fff;
       border: 1px solid #dbdbdb;
-      padding: 40px;
+      padding: 38px 40px 20px;
       text-align: center;
     }
 
-    .logo {
-      font-size: 34px;
-      font-weight: bold;
-      margin-bottom: 35px;
-      letter-spacing: -1px;
+    .brand {
+      font-family: "Brush Script MT", cursive;
+      font-size: 48px;
+      font-weight: 500;
+      margin: 5px 0 32px;
+      line-height: 1;
     }
 
-    input {
+    .field {
       width: 100%;
-      padding: 11px;
-      margin-bottom: 7px;
+      height: 38px;
+      margin-bottom: 6px;
+      padding: 9px 8px;
       border: 1px solid #dbdbdb;
-      background: #fafafa;
       border-radius: 3px;
+      background: #fafafa;
+      font-size: 12px;
       outline: none;
     }
 
-    input:focus {
-      border-color: #999;
+    .field:focus {
+      border-color: #a8a8a8;
     }
 
-    button {
+    .login-btn {
       width: 100%;
-      margin-top: 8px;
-      padding: 9px;
+      height: 32px;
       border: none;
       border-radius: 8px;
-      background: #0095f6;
+      background: #4cb5f9;
       color: white;
-      font-weight: bold;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 8px;
       cursor: pointer;
     }
 
-    button:hover {
-      background: #1877f2;
+    .login-btn:hover {
+      background: #0095f6;
     }
 
-    .separator {
+    .divider {
       display: flex;
       align-items: center;
-      margin: 22px 0;
-      color: #737373;
-      font-size: 13px;
-      font-weight: bold;
+      margin: 20px 0 22px;
     }
 
-    .separator::before,
-    .separator::after {
-      content: "";
+    .line {
+      flex: 1;
       height: 1px;
       background: #dbdbdb;
-      flex: 1;
     }
 
-    .separator span {
-      padding: 0 15px;
+    .or {
+      margin: 0 18px;
+      color: #737373;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .help {
-      font-size: 12px;
+    .alt-login {
       color: #385185;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .forgot {
+      font-size: 12px;
+      color: #00376b;
       margin-top: 18px;
     }
 
-    .footer {
+    .signup-card {
+      width: 350px;
+      background: white;
+      border: 1px solid #dbdbdb;
       text-align: center;
-      margin-top: 25px;
+      padding: 22px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .signup-card span {
+      color: #0095f6;
+      font-weight: 600;
+    }
+
+    .demo-label {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #737373;
+    }
+
+    footer {
+      max-width: 700px;
+      text-align: center;
+      margin-top: 55px;
       color: #737373;
       font-size: 12px;
+      line-height: 28px;
+    }
+
+    footer span {
+      margin: 0 7px;
+      white-space: nowrap;
     }
 
     #message {
       margin-top: 15px;
       font-size: 13px;
+      color: #262626;
+    }
+
+    @media (max-width: 450px) {
+      body {
+        background: white;
+      }
+
+      .login-card,
+      .signup-card {
+        width: 100%;
+        max-width: 350px;
+        border: none;
+      }
+
+      .page {
+        justify-content: flex-start;
+        padding-top: 50px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="page">
 
-    <div class="login-box">
+  <div class="login-card">
 
-      <div class="logo">
-        COMPANY
-      </div>
-
-      <form id="loginForm">
-
-        <input
-          type="text"
-          id="username"
-          placeholder="Company username"
-          required
-        >
-
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
-          required
-        >
-
-        <button type="submit">
-          Log in
-        </button>
-
-      </form>
-
-      <div class="separator">
-        <span>OR</span>
-      </div>
-
-      <div class="help">
-        Internal Company Portal
-      </div>
-
-      <div id="message"></div>
-
+    <div class="brand">
+      Company
     </div>
 
-    <div class="footer">
-      Temporary company demonstration
+    <form id="loginForm">
+
+      <input
+        class="field"
+        type="text"
+        id="username"
+        placeholder="Phone number, username, or email"
+        required
+      />
+
+      <input
+        class="field"
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+      />
+
+      <button class="login-btn" type="submit">
+        Log in
+      </button>
+
+    </form>
+
+    <div class="divider">
+      <div class="line"></div>
+      <div class="or">OR</div>
+      <div class="line"></div>
     </div>
+
+    <div class="alt-login">
+      Log in with company account
+    </div>
+
+    <div class="forgot">
+      Forgot password?
+    </div>
+
+    <div id="message"></div>
 
   </div>
 
+  <div class="signup-card">
+    Don't have an account?
+    <span>Contact administrator</span>
+  </div>
+
+  <div class="demo-label">
+    Company demonstration portal
+  </div>
+
+  <footer>
+    <span>About</span>
+    <span>Help</span>
+    <span>Privacy</span>
+    <span>Terms</span>
+    <span>Locations</span>
+    <span>Contact</span>
+    <br>
+    © 2026 Company Portal
+  </footer>
+
+</div>
+
 <script>
+  document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(event) {
 
-document
-  .getElementById("loginForm")
-  .addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    event.preventDefault();
+      const username =
+        document.getElementById("username").value.trim();
 
-    const username =
-      document.getElementById("username").value;
-
-    document.getElementById("message").innerHTML =
-      "Welcome, " + username;
-
-  });
-
+      document.getElementById("message").textContent =
+        "Demo login submitted for " + username;
+    });
 </script>
 
 </body>
